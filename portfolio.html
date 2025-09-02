@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Françoise Leatitia - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #6C757D;
+            --background-light: #F8F9FA;
+            --background-dark: #343A40;
+            --text-dark: #212529;
+            --text-light: #F8F9FA;
+            --card-background: #FFFFFF;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+            --border-color: #E9ECEF;
+        }
+
+        /* Red Theme Variables */
+        body.red-theme {
+            --primary-color: #DC3545; /* Red */
+            --secondary-color: #6C757D;
+            --background-light: #F8F9FA;
+            --background-dark: #343A40;
+            --text-dark: #212529;
+            --text-light: #F8F9FA;
+            --card-background: #FFFFFF;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-strong: rgba(0, 0, 0, 0.15);
+            --border-color: #E9ECEF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* All your existing CSS goes here */
+        body.dark-theme {
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+
+        body.dark-theme .navbar {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-theme .navbar-brand,
+        body.dark-theme .nav-link {
+            color: #f0f0f0;
+        }
+
+        body.dark-theme .section {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-theme .section:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-theme .section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #333;
+        }
+
+        body.dark-theme .skills-list li {
+            background-color: #2a2a2a;
+            border-color: #444;
+            color: #bbb;
+        }
+
+        body.dark-theme .skills-list li:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        body.dark-theme .experience-item h3,
+        body.dark-theme .project-item h3 {
+            color: #f0f0f0;
+        }
+
+        body.dark-theme .experience-item p,
+        body.dark-theme .project-item p,
+        body.dark-theme .project-item .tech-stack {
+            color: #bbb;
+        }
+
+        body.dark-theme .footer {
+            color: #888;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #f8f9fa;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand, .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        header.cv-header {
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 4px 15px var(--shadow-strong);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        body.red-theme header.cv-header {
+            background: linear-gradient(135deg, var(--primary-color), #a0303c);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover {
+            color: #E9ECEF;
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: var(--card-background);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-strong);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-list li {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skills-list li:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            transform: scale(1.05);
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3, .project-item h3 {
+            color: var(--text-dark);
+        }
+
+        .experience-item p, .project-item p {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+
+        .project-item ul {
+            padding-left: 20px;
+        }
+
+        .project-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item .tech-stack {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+
+        .about-me p {
+            text-align: justify;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        .glow-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+            transition: all 0.3s ease-in-out;
+        }
+
+        body.red-theme .glow-button {
+            background: linear-gradient(135deg, #DC3545, #a0303c);
+            box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 0 0 30px rgba(118, 75, 162, 0.6);
+            transform: translateY(-4px) scale(1.04);
+        }
+
+        body.red-theme .glow-button:hover {
+            box-shadow: 0 0 20px rgba(220, 53, 69, 0.8), 0 0 30px rgba(160, 48, 60, 0.6);
+        }
+
+        .glow-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 0 12px rgba(102, 126, 234, 0.7);
+        }
+
+        .glow-button .fas.fa-download {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .cv-header {
+                padding: 3rem 1rem;
+                border-bottom-left-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+            }
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .section {
+                padding: 1.5rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Françoise Léa</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary text-white ms-2 px-3" href="contact.php">Contact</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-outline-secondary" id="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-outline-secondary" id="color-toggle" aria-label="Toggle color theme">
+                            <i class="bi bi-palette-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="cv-header">
+        <div class="header-content">
+            <h1>FRANCOISE LEATITIA</h1>
+            <p>Software Engineer & Webmaster</p>
+            <div class="contact-info">
+                <a href="tel:+237621305925"><i class="fas fa-phone"></i> +237621305925</a>
+                <a href="mailto:leatitiamedou@gmail.com"><i class="fas fa-envelope"></i> leatitiamedou@gmail.com</a>
+                <span><i class="fas fa-map-marker-alt"></i> Yaounde, Cameroon</span>
+            </div>
+            <button id="download-btn" class="glow-button">
+                <i class="fas fa-download"></i> Download CV
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section" id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Bootstrap</li>
+                <li>PHP</li>
+                <li>WordPress</li>
+                <li>Figma</li>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>Cisco Packet Tracer</li>
+                <li>Adobe XD</li>
+                <li>Canva</li>
+            </ul>
+        </section>
+
+        <section class="section" id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="experience-item">
+                <h3>Software Engineer & Webmaster</h3>
+                <p>Freelance & Consultancy | 2022 - Present</p>
+                <ul>
+                    <li>Designed, developed, and maintained a comprehensive e-commerce website, managing product catalogs, user accounts, and payment integrations.</li>
+                    <li>Created and deployed a secure web platform for a medical institution, focusing on patient data management and appointment scheduling.</li>
+                    <li>Implemented responsive designs and optimized website performance to ensure cross-device compatibility and faster load times.</li>
+                    <li>Managed content updates, SEO strategies, and security protocols for multiple client websites.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <h3>E-commerce Platform</h3>
+                <p>A full-featured online store for a retail company.</p>
+                <div class="tech-stack">Technologies: HTML, CSS, JavaScript, PHP, Bootstrap, WordPress</div>
+                <ul>
+                    <li>Developed custom themes and plugins to meet specific client requirements.</li>
+                    <li>Integrated secure payment gateways and customer relationship management (CRM) tools.</li>
+                    <li>Optimized website for mobile use, leading to a significant increase in mobile conversions.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <h3>Medical Institute Website</h3>
+                <p>A secure portal for a medical clinic to manage patient information and appointments.</p>
+                <div class="tech-stack">Technologies: HTML, CSS, JavaScript, PHP</div>
+                <ul>
+                    <li>Built a custom content management system for easy updates by administrative staff.</li>
+                    <li>Ensured compliance with data privacy regulations through secure user authentication and data encryption.</li>
+                    <li>Designed a clean, intuitive user interface for both patients and staff.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>DQP in Webmaster</h3>
+                <p>Intelligentsia Corporation | Yaounde, Cameroon</p>
+                <p>Dates Attended</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            &copy; IN 2025 with FRANCOISE LEATITIA. All rights reserved.
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark/Light Theme Toggle Script
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const toggleIcon = themeToggle.querySelector('i');
+        const colorToggle = document.getElementById('color-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            if (body.classList.contains('dark-theme')) {
+                toggleIcon.classList.remove('bi-moon-fill');
+                toggleIcon.classList.add('bi-sun-fill');
+            } else {
+                toggleIcon.classList.remove('bi-sun-fill');
+                toggleIcon.classList.add('bi-moon-fill');
+            }
+        });
+
+        // Blue/Red Theme Toggle Script
+        colorToggle.addEventListener('click', () => {
+            body.classList.toggle('red-theme');
+        });
+
+        // Dynamic CV Download Script
+        const downloadBtn = document.getElementById('download-btn');
+        downloadBtn.addEventListener('click', () => {
+            const cvContent = `
+Name: FRANCOISE LEATITIA
+Software Engineer & Webmaster
+
+Contact:
+Phone: +237621305925
+Email: leatitiamedou@gmail.com
+Location: Yaounde, Cameroon
+
+Skills:
+- HTML, CSS, JavaScript
+- Bootstrap, PHP, WordPress
+- Figma, Photoshop, Illustrator, Adobe XD
+- Cisco Packet Tracer, Canva
+
+Professional Experience:
+Software Engineer & Webmaster | Freelance & Consultancy | 2022 - Present
+- Designed, developed, and maintained a comprehensive e-commerce website.
+- Created and deployed a secure web platform for a medical institution.
+- Managed content, SEO, and security for multiple client websites.
+
+Key Projects:
+E-commerce Platform:
+- Built a full-featured online store using HTML, CSS, JavaScript, PHP, Bootstrap, and WordPress.
+- Integrated secure payment gateways and CRM tools.
+
+Medical Institute Website:
+- Developed a secure portal with a custom content management system.
+- Ensured data privacy and designed an intuitive user interface.
+
+Education:
+DQP in Webmaster
+Intelligentsia Corporation | Yaounde, Cameroon
+Dates Attended
+
+`;
+            const blob = new Blob([cvContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'amougui_medou_francoise_leatitia_cv.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

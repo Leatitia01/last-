@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share with Francoise Leatitia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Base Theme (Blue) */
+        :root {
+            --bg-primary: #1e3a8a;
+            --bg-secondary: #1d4ed8;
+            --card-bg: #dbeafe;
+            --text-color: #1f2937;
+            --link-color: #3b82f6;
+            --accent-color: #2563eb;
+            --button-bg: #22c55e;
+            --button-shadow: rgba(34, 197, 94, 0.5);
+            --card-border: #1d4ed8;
+            --qr-bg: #ffffff;
+            --qr-dark: #000000;
+        }
+
+        /* Red Theme */
+        body.red-theme {
+            --bg-primary: #991b1b;
+            --bg-secondary: #b91c1c;
+            --card-bg: #fee2e2;
+            --text-color: #451a03;
+            --link-color: #ef4444;
+            --accent-color: #dc2626;
+            --button-bg: #ef4444;
+            --button-shadow: rgba(239, 68, 68, 0.5);
+            --card-border: #dc2626;
+        }
+
+        body {
+            background-image: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-color);
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .main-card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--card-border);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeInScale 1s ease-out;
+            transition: background-color 0.5s ease, border-color 0.5s ease;
+        }
+
+        .theme-button, .whatsapp-button {
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        .whatsapp-button {
+            background-color: var(--button-bg);
+            box-shadow: 0 4px 10px var(--button-shadow);
+        }
+
+        .theme-button {
+            background-color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-button:hover, .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px var(--button-shadow);
+        }
+
+        #qr-code-container {
+            background-color: var(--qr-bg);
+            border: 2px solid var(--qr-dark);
+        }
+
+        #qr-code-container canvas {
+            transition: transform 0.5s ease;
+        }
+
+        #qr-code-container:hover canvas {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.02);
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            }
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+    </style>
+    <!-- QR code library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+
+    <!-- Navbar -->
+    <nav class="navbar w-full py-4 px-6 flex justify-between items-center text-white">
+        <div class="text-xl font-bold">Francoise Leatitia</div>
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-white hover:text-gray-200">Home</a>
+            <a href="portfolio.html" class="text-white hover:text-gray-200">Contact</a>
+            <button id="theme-toggle" class="theme-button rounded-full">
+                <!-- Sun Icon for Blue Theme -->
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <!-- Moon Icon for Red Theme (initially hidden) -->
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <div class="main-card max-w-sm w-full p-6 mt-24 rounded-3xl text-center shadow-lg transform hover:scale-105 transition-transform duration-300">
+        <h1 class="text-3xl font-bold mb-4 text-gray-800 animate-pulse-glow">Scan and Connect!</h1>
+        <p class="text-lg mb-6 text-gray-600">Scan the QR code below to save my contact info or send me a WhatsApp message.</p>
+
+        <!-- QR Code Container -->
+        <div id="qr-code-container" class="p-2 bg-gray-100 rounded-xl mb-6 flex items-center justify-center"></div>
+
+        <div class="space-y-4">
+            <!-- Share Contact Button (vCard QR code) -->
+            <button id="share-contact-btn" class="whatsapp-button w-full py-3 px-6 rounded-full font-bold text-white shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-opacity-50">
+                Download Contact QR
+            </button>
+
+            <!-- WhatsApp Message Button -->
+            <a id="whatsapp-link" href="https://wa.me/237621305925" target="_blank" class="whatsapp-button w-full py-3 px-6 rounded-full font-bold text-white shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-opacity-50 inline-flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 448 512" fill="currentColor">
+                    <path d="M380.9 97.4C339.4 55.9 283.8 32 224 32S108.6 55.9 67.1 97.4 32 192.2 32 251.8c0 37.3 11.2 72.3 32.7 103.8L6.4 449.1c-12.6 30.6 7.2 62.5 38.8 62.5h85.3l12.5-30.7c21.8 8.7 45 13.5 69.4 13.5 59.8 0 115.4-23.9 156.9-65.4s65.4-100.8 65.4-160.4-23.9-115.4-65.4-156.9zm-8.8 287.9c-33.5 33.5-78 51.9-125.7 51.9-24.9 0-48.4-4.8-69.7-14.1l-14.4-6.4-12.4 30.5-56.7-18.1 14.2-34.9-7.2-14.4c-9.3-21.4-14.1-44.9-14.1-69.7 0-47.7 18.4-92.2 51.9-125.7s78-51.9 125.7-51.9 92.2 18.4 125.7 51.9 51.9 78 51.9 125.7-18.4 92.2-51.9 125.7z"/>
+                </svg>
+                Text on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const phoneNumber = "+237621305925";
+            const name = "Francoise Leatitia";
+            const location = "Yaounde, CMR";
+            const qrCodeContainer = document.getElementById('qr-code-container');
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const body = document.body;
+            
+            // Generate WhatsApp message link and QR code content
+            const whatsappLink = `https://wa.me/${phoneNumber.replace('+', '')}`;
+            
+            // Generate vCard data for contact sharing
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:${name}
+TEL:${phoneNumber}
+NOTE:${location}
+END:VCARD`;
+
+            // Function to generate and display the QR code
+            function generateQRCode(data) {
+                qrCodeContainer.innerHTML = ''; // Clear previous QR code
+                const qrcode = new QRCode(qrCodeContainer, {
+                    text: data,
+                    width: 250,
+                    height: 250,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+
+            // Initially generate the vCard QR code
+            generateQRCode(vCardData);
+            
+            // Theme toggle functionality
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('red-theme');
+                if (body.classList.contains('red-theme')) {
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            });
+
+            // Handle download button click for contact QR
+            document.getElementById('share-contact-btn').addEventListener('click', () => {
+                const canvas = qrCodeContainer.querySelector('canvas');
+                if (canvas) {
+                    const dataURL = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = `QR_Code_${name}.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } else {
+                    console.error("QR code canvas not found.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
