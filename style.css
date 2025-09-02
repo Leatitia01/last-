@@ -24,7 +24,6 @@
     --rating-color: #ffc107;
 }
 
-
 body.red-theme {
     --bg-color: #210c0c;
     --second-bg-color: #3b1b1b;
@@ -38,7 +37,8 @@ body.red-theme {
     --badge-success: #ffa500;
     --rating-color: #ff8c00;
 }
-html{  
+
+html {
     font-size: 67.5%;
     overflow-x: hidden;
 }
@@ -50,14 +50,13 @@ body {
 }
 
 /* Header and Navigation */
-
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background: var(--bg-color); /* Added a background color so it's not transparent and hides the content */
+    background: var(--bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,15 +82,15 @@ body {
 
 .logo {
     position: relative;
-    font-size: 2.5rem; /* Adjusted font size for better fit */
+    font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 400;
 }
 
 .navbar {
     position: relative;
-    display: flex; /* Ensures items are in a row */
-    align-items: center; /* Aligns items vertically */
+    display: flex;
+    align-items: center;
 }
 
 .navbar a {
@@ -135,8 +134,6 @@ section {
 }
 
 /* Home Section */
-
-
 .home-content {
     max-width: 50%;
     z-index: 99;
@@ -149,10 +146,10 @@ section {
 .home-content h1 {
     position: relative;
     display: inline-block;
-    font-size: 4.5rem; /* Adjusted font size to prevent overlap */
+    font-size: 4.5rem;
     font-weight: 400;
-    line-height: 1.2; /* Adjusted line height for better spacing */
-    margin-bottom: 1rem; /* Added margin for better spacing */
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .home-content h1 span {
@@ -161,11 +158,11 @@ section {
 
 .home-content .text-animate {
     position: relative;
-    width: fit-content; /* Adjust width to fit content */
+    width: fit-content;
 }
 
 .home-content .text-animate h3 {
-    font-size: 2.8rem; /* Adjusted font size */
+    font-size: 2.8rem;
     font-weight: 700;
     color: transparent;
     -webkit-text-stroke: .7px var(--main-color);
@@ -175,7 +172,6 @@ section {
     background-position: -33rem 0;
     position: relative;
     transition: all 0.5s ease;
-    
 }
 
 .home-content .text-animate h3::before {
@@ -196,7 +192,8 @@ section {
     font-size: 1.6rem;
     margin: 2rem 0;
 }
-.home-content .text-animate h3::before{
+
+.home-content .text-animate h3::before {
     content: '';
     position: absolute;
     top: 0;
@@ -205,7 +202,6 @@ section {
     height: 100%;
     border-right: 2px solid var(#00abf0;);
     z-index: -1;
-    
 }
 
 .profile-badges {
@@ -222,12 +218,29 @@ section {
     font-weight: 500;
 }
 
-.bg-primary-light { background-color: var(--badge-primary-light); }
-.text-primary { color: var(--badge-primary); }
-.bg-purple-light { background-color: var(--badge-purple-light); }
-.text-purple { color: var(--badge-purple); }
-.bg-success-light { background-color: var(--badge-success-light); }
-.text-success { color: var(--badge-success); }
+.bg-primary-light {
+    background-color: var(--badge-primary-light);
+}
+
+.text-primary {
+    color: var(--badge-primary);
+}
+
+.bg-purple-light {
+    background-color: var(--badge-purple-light);
+}
+
+.text-purple {
+    color: var(--badge-purple);
+}
+
+.bg-success-light {
+    background-color: var(--badge-success-light);
+}
+
+.text-success {
+    color: var(--badge-success);
+}
 
 .btn-box {
     position: relative;
@@ -615,7 +628,8 @@ section {
     padding-bottom: 2rem;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* For smoother scrolling on iOS */
 }
 
 .testimonial-container {
@@ -633,7 +647,8 @@ section {
     border-radius: 1rem;
     padding: 3rem;
     text-align: center;
-    flex: 0 0 35rem; /* Fixed width for card and prevent shrinking */
+    flex: 0 0 35rem;
+    /* Fixed width for card and prevent shrinking */
     max-width: 40rem;
     display: flex;
     flex-direction: column;
@@ -745,10 +760,10 @@ section {
     transition: .5s;
 }
 
-.contact form .input-box .input-field input:focus ~ .focus,
-.contact form .input-box .input-field input:valid ~ .focus,
-.contact form .textarea-field textarea:focus ~ .focus,
-.contact form .textarea-field textarea:valid ~ .focus {
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:valid~.focus,
+.contact form .textarea-field textarea:focus~.focus,
+.contact form .textarea-field textarea:valid~.focus {
     width: 100%;
 }
 
@@ -892,18 +907,38 @@ section {
 }
 
 @keyframes floatImage {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-2.4rem); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
-/* Media Queries */
+/* --- Media Queries for Responsive Design --- */
+/* Breakpoint for larger screens (e.g., desktops) */
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
     }
+    .home-content h1 {
+        font-size: 4rem;
+    }
+    .home-content .text-animate h3 {
+        font-size: 2.4rem;
+    }
+    .btn-box {
+        width: 30rem;
+    }
+    .about-content p {
+        max-width: 60rem;
+    }
 }
 
+/* Breakpoint for medium screens (e.g., tablets) */
 @media (max-width: 991px) {
     .header {
         padding: 2rem 4%;
@@ -914,14 +949,32 @@ section {
     .home {
         padding: 0 4%;
     }
+    .about-content p {
+        max-width: 100%;
+        text-align: center;
+    }
+    .skills-row,
+    .services-container,
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .skills-column,
+    .service-card,
+    .testimonial-card {
+        width: 100%;
+        max-width: 50rem;
+    }
     .footer {
         padding: 2rem 4%;
     }
 }
 
+/* Breakpoint for small screens (e.g., phones) */
 @media (max-width: 768px) {
     .header {
         background: var(--bg-color);
+        padding: 1.5rem 5%;
     }
     #menu-icon {
         display: block;
@@ -970,61 +1023,79 @@ section {
         transform: translateX(0);
         transition-delay: .25s;
     }
+    .home {
+        flex-direction: column-reverse;
+        padding-top: 5rem;
+    }
     .home-img {
-        display: none;
+        position: relative;
+        width: 80%;
+        height: auto;
+        padding-right: 0;
+        margin-bottom: 2rem;
     }
     .home-content {
         max-width: 100%;
         text-align: center;
         align-items: center;
+        min-height: auto;
+        padding-top: 2rem;
+    }
+    .home-content h1 {
+        font-size: 3.5rem;
+    }
+    .home-content .text-animate h3 {
+        font-size: 2.2rem;
     }
     .home-sci {
         position: static;
         margin-top: 2rem;
         justify-content: center;
-    }
-    .about-content p {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 520px) {
-    html {
-        font-size: 50%;
-    }
-    .home-content h1 {
-        display: flex;
-        flex-direction: column;
-        font-size: 3.5rem; /* Further adjustment for smaller screens */
-    }
-    .home-content .text-animate {
-        width: auto;
-    }
-    .home-content .text-animate h3 {
-        font-size: 2.2rem; /* Further adjustment for smaller screens */
-    }
-    .btn-box {
         width: 100%;
-        justify-content: center;
-        gap: 1rem;
     }
-    .btn-box .btn {
-        width: 12rem;
+    .about,
+    .skills,
+    .services,
+    .testimonials,
+    .contact {
+        padding: 5rem 4% 2rem;
     }
-    .profile-badges {
-        justify-content: center;
-    }
-    .education-column, .skills-column {
-        flex: 1 1 100%;
+    .stats-section .col-6 {
+        width: 50%;
     }
     .contact form .input-box .input-field {
         width: 100%;
     }
     .footer {
         flex-direction: column-reverse;
-    }
-    .footer p {
-        margin-top: 2rem;
         text-align: center;
+        gap: 1.5rem;
+    }
+    .footer-text {
+        margin-top: 1rem;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+    html {
+        font-size: 45%;
+    }
+    .home-content h1 {
+        font-size: 3rem;
+    }
+    .home-content .text-animate h3 {
+        font-size: 2rem;
+    }
+    .btn-box {
+        flex-direction: column;
+        height: auto;
+        gap: 1.5rem;
+    }
+    .btn-box .btn {
+        width: 100%;
+    }
+    .about-content p {
+        text-align: left;
     }
 }
